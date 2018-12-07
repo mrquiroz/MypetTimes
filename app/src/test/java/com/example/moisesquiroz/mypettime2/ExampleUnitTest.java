@@ -1,4 +1,4 @@
-package com.example.moisesquiroz.mypettime;
+package com.example.moisesquiroz.mypettime2;
 
 import org.junit.Test;
 

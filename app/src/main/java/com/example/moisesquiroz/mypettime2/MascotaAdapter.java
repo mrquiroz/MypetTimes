@@ -1,0 +1,62 @@
+package com.example.moisesquiroz.mypettime2;
+
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Locale;
+
+public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaHolder>{
+
+    public class MascotaHolder extends RecyclerView.ViewHolder {
+        private TextView txtName, txtDistance, txtGravity, txtDiameter;
+        public MascotaHolder(View itemView) {
+            super(itemView);
+            txtName = itemView.findViewById(R.id.txtName);
+            txtDistance = itemView.findViewById(R.id.txtDistance);
+            txtGravity = itemView.findViewById(R.id.txtGravity);
+            txtDiameter = itemView.findViewById(R.id.txtDiameter);
+        }
+        public void setDetails(Mascota mascota) {
+            txtName.setText(mascota.getPlanetName());
+            txtDistance.setText(String.format(Locale.US, "Edad de la mascota : %d años", mascota.getEdad()));
+            txtGravity.setText(String.format(Locale.US, "Mes de nacimiento : %d ", mascota.getNacimiento()));
+            txtDiameter.setText(String.format(Locale.US, "Peso : %d Kg", mascota.getPeso()));
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+        // aca debe pasar algo
+                }
+            });
+
+        }
+
+    }
+    private Context context;
+    private ArrayList<Mascota> planets;
+    public MascotaAdapter(Context context, ArrayList<Mascota> mascotas) {
+            this.context = context;
+            this.planets = mascotas;
+        }
+    @Override
+    public int getItemCount() {
+        return planets.size();
+    }
+    @Override
+    public MascotaHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_row,parent, false);
+        return new MascotaHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(MascotaHolder holder, int position) {
+        Mascota mascota = planets.get(position);
+        holder.setDetails(mascota);
+    }
+
+}
+
