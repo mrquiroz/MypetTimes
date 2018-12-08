@@ -23,9 +23,8 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaH
         }
         public void setDetails(Mascota mascota) {
             txtName.setText(mascota.getPlanetName());
-            txtDistance.setText(String.format(Locale.US, "Edad de la mascota : %d años", mascota.getEdad()));
-            txtGravity.setText(String.format(Locale.US, "Mes de nacimiento : %d ", mascota.getNacimiento()));
-            txtDiameter.setText(String.format(Locale.US, "Peso : %d Kg", mascota.getPeso()));
+            txtDistance.setText(String.format(Locale.US, "Especie : %s", mascota.getEspecie()));
+            txtGravity.setText(String.format(Locale.US, "Fecha de Nacimiento : %s ", mascota.getFechaNacimiento()));
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

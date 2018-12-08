@@ -16,12 +16,14 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MascotaAdapter adapter;
     private ArrayList<Mascota> planetArrayList;
+    DBHelper db;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        db = new DBHelper (this);
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -42,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
         createListData();
 
+        db.getAllMascota(planetArrayList);
+        adapter.notifyDataSetChanged();
+
+        db.close();
     }
 
     public void mover(View view) {
@@ -50,36 +56,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     private void createListData() {
-        Mascota planet = new Mascota("Cachupin", 15, 10, 12);
-        planetArrayList.add(planet);
-
-        planet = new Mascota("Naruto", 7, 2, 14);
-        planetArrayList.add(planet);
-
-        planet = new Mascota("Batman", 2, 4, 68);
-        planetArrayList.add(planet);
-
-        planet = new Mascota("Silvestre", 5, 1, 23);
-        planetArrayList.add(planet);
-
-        planet = new Mascota("Gato1", 10, 9, 127);
-        planetArrayList.add(planet);
-
-        planet = new Mascota("Gato2", 14, 11, 12);
-        planetArrayList.add(planet);
-
-        planet = new Mascota("Gato1 otra vez", 5, 4, 49);
-        planetArrayList.add(planet);
-
-        planet = new Mascota("perro", 4, 12, 50);
-        planetArrayList.add(planet);
-
-        planet = new Mascota("doki", 2, 9, 52);
-        planetArrayList.add(planet);
-
-        adapter.notifyDataSetChanged();
+        db.addMascota("Firulais", "Perro", "01/10/2015");
+        db.addMascota("Huesos", "Perro", "10/11/2010");
+        db.addMascota("Misifus", "Gato", "25/04/2013");
+        db.addMascota("Richard Parker", "Tigre", "12/06/2011");
+        db.addMascota("Jaws", "Tiburon Blanco", "14/03/2009");
     }
 }

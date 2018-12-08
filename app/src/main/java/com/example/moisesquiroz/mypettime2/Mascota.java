@@ -2,37 +2,35 @@ package com.example.moisesquiroz.mypettime2;
 
 public class Mascota {
     private String planetName;
-    private int edad;
-    private int nacimiento;
-    private int peso;
-    public Mascota(String planetName, int edad, int nacimiento, int peso) {
+    private String especie;
+    private String fechaNacimiento;
+    private int id;
+
+    public Mascota(String planetName, String especie, String fechaNacimiento, int id) {
         this.planetName = planetName;
-        this.edad = edad;
-        this.nacimiento = nacimiento;
-        this.peso = peso;
+        this.especie = especie;
+        this.fechaNacimiento = fechaNacimiento;
+        this.id = id;
     }
+
     public String getPlanetName() {
         return planetName;
     }
     public void setPlanetName(String planetName) {
         this.planetName = planetName;
     }
-    public int getEdad() {
-        return edad;
+    public String getEspecie() {
+        return especie;
     }
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
-    public int getNacimiento() {
-        return nacimiento;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
-    public void setNacimiento(int nacimiento) {
-        this.nacimiento = nacimiento;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
-    public int getPeso() {
-        return peso;
-    }
-    public void setPeso(int peso) {
-        this.peso = peso;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 }
