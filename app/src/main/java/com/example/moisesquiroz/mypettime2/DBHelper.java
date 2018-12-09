@@ -351,4 +351,8 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return array_list;
     }
+    public boolean checkEmpty(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return DatabaseUtils.queryNumEntries(db, "mascota") == 0;
+    }
 }

@@ -42,7 +42,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //createListData();
+
+
+        if(db.checkEmpty())
+        {
+            createListData();
+        }
 
         db.getAllMascota(planetArrayList);
         adapter.notifyDataSetChanged();
