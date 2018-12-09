@@ -46,11 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         db.getAllMascota(planetArrayList);
         adapter.notifyDataSetChanged();
-
-        db.close();
     }
 
     public void mover(View view) {
+        db.close();
         Intent intent = new Intent(this, DatosMascota.class);
         startActivity(intent);
     }

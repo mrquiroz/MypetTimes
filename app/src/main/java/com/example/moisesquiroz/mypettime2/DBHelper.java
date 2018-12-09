@@ -1,8 +1,6 @@
 package com.example.moisesquiroz.mypettime2;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -27,22 +25,44 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL(
                 "CREATE TABLE IF NOT EXISTS Comida" +
-                        "(id INTEGER PRIMARY KEY AUTOINCREMENT, etiqueta VARCHAR, cantidad INTEGER, hora DATETIME, idMascota INTEGER, FOREIGN KEY(idMascota) REFERENCES Mascota(id));"
+                        "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "etiqueta VARCHAR, " +
+                        "cantidad INTEGER, " +
+                        "hora DATETIME, " +
+                        "idMascota INTEGER, " +
+                        "FOREIGN KEY(idMascota) REFERENCES Mascota(id) ON DELETE CASCADE" +
+                        ");"
         );
 
         db.execSQL(
                 "CREATE TABLE IF NOT EXISTS Medicamento" +
-                        "(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre VARCHAR, hora DATETIME, idMascota INTEGER, FOREIGN KEY(idMascota) REFERENCES Mascota(id));"
+                        "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "nombre VARCHAR, " +
+                        "hora DATETIME, " +
+                        "idMascota INTEGER, " +
+                        "FOREIGN KEY(idMascota) REFERENCES Mascota(id) ON DELETE CASCADE" +
+                        ");"
         );
 
         db.execSQL(
                 "CREATE TABLE IF NOT EXISTS Ejercicio" +
-                        "(id INTEGER PRIMARY KEY AUTOINCREMENT, etiqueta VARCHAR, duracion INTEGER, hora DATETIME, idMascota INTEGER, FOREIGN KEY(idMascota) REFERENCES Mascota(id));"
+                        "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "etiqueta VARCHAR, " +
+                        "duracion INTEGER, " +
+                        "hora DATETIME, " +
+                        "idMascota INTEGER, " +
+                        "FOREIGN KEY(idMascota) REFERENCES Mascota(id) ON DELETE CASCADE" +
+                        ");"
         );
 
         db.execSQL(
                 "CREATE TABLE IF NOT EXISTS Veterinario" +
-                        "(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre VARCHAR, fecha DATETIME, idMascota INTEGER, FOREIGN KEY(idMascota) REFERENCES Mascota(id));"
+                        "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "nombre VARCHAR, " +
+                        "fecha DATETIME, " +
+                        "idMascota INTEGER, " +
+                        "FOREIGN KEY(idMascota) REFERENCES Mascota(id) ON DELETE CASCADE" +
+                        ");"
         );
     }
 
@@ -215,7 +235,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.delete("Mascota",
                 "id = ? ",
                 new String[] { Integer.toString(id) });
-        // TODO Un delete cascade aqui?
     }
 
     public int deleteComida (Integer id) {
