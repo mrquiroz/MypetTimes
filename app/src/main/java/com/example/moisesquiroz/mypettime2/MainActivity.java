@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        createListData();
+        //createListData();
 
         db.getAllMascota(planetArrayList);
         adapter.notifyDataSetChanged();
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void createListData() {
+        // Inicializa con valores de prueba
         db.addMascota("Firulais", "Perro", "01/10/2015");
         db.addMascota("Huesos", "Perro", "10/11/2010");
         db.addMascota("Misifus", "Gato", "25/04/2013");

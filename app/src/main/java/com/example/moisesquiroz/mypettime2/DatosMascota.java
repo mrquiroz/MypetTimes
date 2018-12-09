@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class DatosMascota extends AppCompatActivity {
 
@@ -20,7 +21,20 @@ public class DatosMascota extends AppCompatActivity {
         aceptarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO agregar datos de la mascota
+                // Se obtienen los datos de la mascota
+                EditText editNombre = (EditText)findViewById(R.id.nombre_mascota_input);
+                EditText editEspecie = (EditText)findViewById(R.id.especie_input);
+                EditText editFechaN = (EditText)findViewById(R.id.fecha_nacimiento_input);
+
+                // TODO comprobar que la fecha este en formato correcto
+
+                // Se agrega la nueva mascota en la BD
+                db.addMascota(
+                        editNombre.getText().toString(),
+                        editEspecie.getText().toString(),
+                        editFechaN.getText().toString()
+                );
+
                 volver(v);
             }
         });
@@ -33,7 +47,6 @@ public class DatosMascota extends AppCompatActivity {
             }
         });
 
-        db.close();
     }
 
     public void volver(View view) {

@@ -32,6 +32,7 @@
         tools:layout_editor_absoluteY="107dp">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/nombre_mascota_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre mascota" />
@@ -46,6 +47,7 @@
         android:layout_marginTop="176dp">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/especie_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Especie mascota" />
@@ -60,6 +62,7 @@
         android:layout_marginBottom="203dp">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/fecha_nacimiento_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Fecha nacimiento mascota" />
