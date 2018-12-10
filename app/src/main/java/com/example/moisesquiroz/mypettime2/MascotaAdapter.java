@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -23,14 +24,16 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaH
             txtGravity = itemView.findViewById(R.id.txtGravity);
             txtDiameter = itemView.findViewById(R.id.txtDiameter);
         }
-        public void setDetails(Mascota mascota) {
+        public void setDetails(final Mascota mascota) {
             txtName.setText(mascota.getPlanetName());
             txtDistance.setText(String.format(Locale.US, "Especie : %s", mascota.getEspecie()));
             txtGravity.setText(String.format(Locale.US, "Fecha de Nacimiento : %s ", mascota.getFechaNacimiento()));
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-        // aca debe pasar algo
+                // Mensaje de prueba:
+                    Toast mostrarNombre = Toast.makeText(context.getApplicationContext(), mascota.getPlanetName(), Toast.LENGTH_LONG);
+                    mostrarNombre.show();
                 }
             });
 
