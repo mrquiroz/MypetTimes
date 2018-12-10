@@ -12,9 +12,11 @@ import java.util.Locale;
 
 public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaHolder>{
 
+
     public class MascotaHolder extends RecyclerView.ViewHolder {
         private TextView txtName, txtDistance, txtGravity, txtDiameter;
-        public MascotaHolder(View itemView) {
+        public
+        MascotaHolder(View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.txtName);
             txtDistance = itemView.findViewById(R.id.txtDistance);
@@ -47,6 +49,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaH
     }
     @Override
     public MascotaHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(context).inflate(R.layout.item_row,parent, false);
         return new MascotaHolder(view);
     }
