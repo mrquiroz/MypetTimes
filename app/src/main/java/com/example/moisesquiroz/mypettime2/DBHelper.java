@@ -292,65 +292,92 @@ public class DBHelper extends SQLiteOpenHelper {
         res.close();
     }
 
-    public ArrayList<String> getComidaWithMascota(int idMascota) {
-        ArrayList<String> array_list = new ArrayList<String>();
-
+    public void getComidaWithMascota(int idMascota, ArrayList<Comida> array_list) {
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor res =  db.rawQuery( "select * from Comida where idMascota="+idMascota+"", null ); // TODO Revisar esto
         res.moveToFirst();
 
+        Comida nuevaComida;
+
         while(res.isAfterLast() == false){
-            array_list.add(res.getString(res.getColumnIndex("etiqueta")));
+            nuevaComida = new Comida(
+                    res.getString(res.getColumnIndex("etiqueta")),
+                    res.getString(res.getColumnIndex("hora")),
+                    res.getInt(res.getColumnIndex("cantidad")),
+                    res.getInt(res.getColumnIndex("id")),
+                    res.getInt(res.getColumnIndex("idMascota"))
+            );
+
+            array_list.add(nuevaComida);
             res.moveToNext();
         }
-        return array_list;
+        res.close();
     }
 
-    public ArrayList<String> getMedicamentoWithMascota(int idMascota) {
-        ArrayList<String> array_list = new ArrayList<String>();
-
+    public void getMedicamentoWithMascota(int idMascota, ArrayList<Medicamento> array_list) {
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor res =  db.rawQuery( "select * from Medicamento where idMascota="+idMascota+"", null );  // TODO Revisar esto
         res.moveToFirst();
 
+        Medicamento nuevoMedicamento;
+
         while(res.isAfterLast() == false){
-            array_list.add(res.getString(res.getColumnIndex("nombre")));
+            nuevoMedicamento = new Medicamento(
+                    res.getString(res.getColumnIndex("nombre")),
+                    res.getString(res.getColumnIndex("hora")),
+                    res.getInt(res.getColumnIndex("id")),
+                    res.getInt(res.getColumnIndex("idMascota"))
+            );
+
+            array_list.add(nuevoMedicamento);
             res.moveToNext();
         }
-        return array_list;
+        res.close();
     }
 
-    public ArrayList<String> getEjercicioWithMascota(int idMascota) {
-        ArrayList<String> array_list = new ArrayList<String>();
-
+    public void getEjercicioWithMascota(int idMascota, ArrayList<Ejercicio> array_list) {
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor res =  db.rawQuery( "select * from Ejercicio where idMascota="+idMascota+"", null );  // TODO Revisar esto
         res.moveToFirst();
 
+        Ejercicio nuevoEjercicio;
+
         while(res.isAfterLast() == false){
-            array_list.add(res.getString(res.getColumnIndex("etiqueta")));
+            nuevoEjercicio = new Ejercicio(
+                    res.getString(res.getColumnIndex("etiqueta")),
+                    res.getString(res.getColumnIndex("hora")),
+                    res.getInt(res.getColumnIndex("duracion")),
+                    res.getInt(res.getColumnIndex("id")),
+                    res.getInt(res.getColumnIndex("idMascota"))
+            );
+
+            array_list.add(nuevoEjercicio);
             res.moveToNext();
         }
-        return array_list;
+        res.close();
     }
 
-    public ArrayList<String> getVeterinarioWithMascota(int idMascota) {
-        ArrayList<String> array_list = new ArrayList<String>();
-
+    public void getVeterinarioWithMascota(int idMascota, ArrayList<Veterinario> array_list) {
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor res =  db.rawQuery( "select * from Veterinario where idMascota="+idMascota+"", null );  // TODO Revisar esto
         res.moveToFirst();
 
+        Veterinario nuevoVeterinario;
+
         while(res.isAfterLast() == false){
-            array_list.add(res.getString(res.getColumnIndex("nombre")));
+            nuevoVeterinario = new Veterinario(
+                    res.getString(res.getColumnIndex("nombre")),
+                    res.getString(res.getColumnIndex("fecha")),
+                    res.getInt(res.getColumnIndex("id")),
+                    res.getInt(res.getColumnIndex("idMascota"))
+            );
+
+            array_list.add(nuevoVeterinario);
             res.moveToNext();
         }
-        return array_list;
+        res.close();
     }
+
     public boolean checkEmpty(){
         SQLiteDatabase db = this.getReadableDatabase();
         return DatabaseUtils.queryNumEntries(db, "mascota") == 0;
