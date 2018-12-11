@@ -27,7 +27,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(
                 "CREATE TABLE IF NOT EXISTS Mascota" +
                         "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        "nombre VARCHAR, especie VARCHAR, " +
+                        "nombre VARCHAR, " +
+                        "especie VARCHAR, " +
                         "fechaNacimiento DATETIME" +
                         ");"
         );
@@ -37,7 +38,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "etiqueta VARCHAR, " +
                         "cantidad INTEGER, " +
-                        "hora DATETIME, " +
+                        "hora VARCHAR, " +
                         "idMascota INTEGER, " +
                         "FOREIGN KEY(idMascota) REFERENCES Mascota(id) ON DELETE CASCADE" +
                         ");"

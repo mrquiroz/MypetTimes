@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.moisesquiroz.mypettime2.activitiesComida.ComidaActivity;
+
 public class CuidadoMascota extends AppCompatActivity {
 
     DBHelper db;
@@ -29,6 +31,15 @@ public class CuidadoMascota extends AppCompatActivity {
         final TextView nMascotaTxtView = (TextView) findViewById(R.id.display_nombre_mascota);
         nMascotaTxtView.setText(nombreMascota);
 
+        // Ver comidas
+        Button comidaMButton = findViewById(R.id.goto_comida);
+        comidaMButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irComidas(v, idMascota);
+            }
+        });
+
         // Editar Mascota
         Button editarMButton = findViewById(R.id.editar_mascota);
         editarMButton.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +58,13 @@ public class CuidadoMascota extends AppCompatActivity {
                 volverMain(v);
             }
         });
+    }
+
+    public void irComidas(View view, int id){
+        db.close();
+        Intent intent = new Intent(this, ComidaActivity.class);
+        intent.putExtra("idMascota", id);
+        startActivity(intent);
     }
 
     public void irEditar(View view, int id){

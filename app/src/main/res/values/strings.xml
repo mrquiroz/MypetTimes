@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">My Pet Time</string>
+    <string name="title_activity_comida">ComidaActivity</string>
 </resources>

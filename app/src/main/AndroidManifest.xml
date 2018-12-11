@@ -18,7 +18,10 @@
         </activity>
         <activity android:name=".DatosMascota" />
         <activity android:name=".CuidadoMascota" />
-        <activity android:name=".EditMascota"></activity>
+        <activity android:name=".EditMascota" />
+        <activity android:name=".activitiesComida.ComidaActivity" />
+        <activity android:name=".activitiesComida.AddComidaActivity" />
+        <activity android:name=".activitiesComida.EditComidaActivity"></activity>
     </application>
 
 </manifest>
