@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DatosMascota" />
-        <activity android:name=".CuidadoMascota"></activity>
+        <activity android:name=".CuidadoMascota" />
+        <activity android:name=".EditMascota"></activity>
     </application>
 
 </manifest>

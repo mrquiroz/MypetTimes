@@ -8,6 +8,12 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.moisesquiroz.mypettime2.clasesEntidades.Comida;
+import com.example.moisesquiroz.mypettime2.clasesEntidades.Ejercicio;
+import com.example.moisesquiroz.mypettime2.clasesEntidades.Mascota;
+import com.example.moisesquiroz.mypettime2.clasesEntidades.Medicamento;
+import com.example.moisesquiroz.mypettime2.clasesEntidades.Veterinario;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "MyPetTimeDB.db";
@@ -20,7 +26,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
                 "CREATE TABLE IF NOT EXISTS Mascota" +
-                        "(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre VARCHAR, especie VARCHAR, fechaNacimiento DATETIME);"
+                        "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "nombre VARCHAR, especie VARCHAR, " +
+                        "fechaNacimiento DATETIME" +
+                        ");"
         );
 
         db.execSQL(

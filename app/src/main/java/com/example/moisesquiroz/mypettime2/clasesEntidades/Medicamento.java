@@ -1,14 +1,14 @@
-package com.example.moisesquiroz.mypettime2;
+package com.example.moisesquiroz.mypettime2.clasesEntidades;
 
-public class Veterinario {
+public class Medicamento {
     private String nombre;
-    private String fecha;
+    private String hora;
     private int id;
     private int idMascota;
 
-    public Veterinario(String nombre, String fecha, int id, int idMascota) {
+    public Medicamento(String nombre, String hora, int id, int idMascota) {
         this.nombre = nombre;
-        this.fecha = fecha;
+        this.hora = hora;
         this.id = id;
         this.idMascota = idMascota;
     }
@@ -19,8 +19,8 @@ public class Veterinario {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public String getFecha() { return fecha; }
-    public void setFecha(String fecha) { this.fecha = fecha; }
+    public String getHora() { return hora; }
+    public void setHora(String hora) { this.hora = hora; }
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public int getIdMascota() { return idMascota; }

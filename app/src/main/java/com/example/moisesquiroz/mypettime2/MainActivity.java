@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.example.moisesquiroz.mypettime2.clasesEntidades.Mascota;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {

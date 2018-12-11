@@ -1,4 +1,4 @@
-package com.example.moisesquiroz.mypettime2;
+package com.example.moisesquiroz.mypettime2.clasesEntidades;
 
 public class Comida {
     private String etiqueta;

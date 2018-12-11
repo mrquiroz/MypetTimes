@@ -1,12 +1,15 @@
 package com.example.moisesquiroz.mypettime2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.moisesquiroz.mypettime2.clasesEntidades.Mascota;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -31,9 +34,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaH
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                // Mensaje de prueba:
-                    Toast mostrarNombre = Toast.makeText(context.getApplicationContext(), mascota.getPlanetName(), Toast.LENGTH_LONG);
-                    mostrarNombre.show();
+                    verDetalles(view, mascota.getId());
                 }
             });
 
@@ -63,5 +64,10 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaH
         holder.setDetails(mascota);
     }
 
+    public void verDetalles(View view, int id) {
+        Intent intent = new Intent(this.context, CuidadoMascota.class);
+        intent.putExtra("idMascota", id);
+        context.startActivity(intent);
+    }
 }
 
